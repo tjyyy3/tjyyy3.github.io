@@ -1,0 +1,322 @@
+/* -----------------------------------------------------------
+   Chiikawa Theme - V5 (Refining Tags, Buttons, Dark Mode)
+----------------------------------------------------------- */
+
+:root {
+  --ck-cream: #FFF9F0;
+  --ck-white: #FFFFFF;
+  --ck-pink: #FFB7B2;
+  --ck-pink-deep: #FF8E88;
+  --ck-pink-light: #FFDAC1;
+  --ck-blue: #AEC6CF;
+  --ck-blue-light: #D4E5ED;
+  --ck-yellow: #FDFD96;
+  --ck-yellow-dark: #FCE38A;
+  --ck-text-main: #5d5d5d;
+  --ck-text-light: #8a8a8a;
+  
+  /* Z-index layers for better maintainability */
+  --z-base: 1;
+  --z-overlay: 2;
+  --z-interactive: 10;
+  
+  --primary-color: var(--ck-pink);
+  --background-color: var(--ck-cream);
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--ck-cream);
+  color: var(--ck-text-main);
+  background-image: radial-gradient(var(--ck-pink-light) 1px, transparent 1px), radial-gradient(var(--ck-blue) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+}
+
+/* Selection */
+::selection {
+  background: var(--ck-pink);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ck-pink);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ck-cream);
+}
+
+/* Navbar */
+.navbar-container {
+  background: rgba(255, 255, 255, 0.7) !important; 
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 183, 178, 0.3);
+}
+
+/* Logo Visibility */
+.logo-title, .logo-title h1, .navbar-title {
+  display: inline-block;
+  color: var(--ck-pink-deep); /* Fallback */
+  background: linear-gradient(135deg, #FF8E88 0%, #AEC6CF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Navbar Items */
+.navbar-list .navbar-item a {
+  color: var(--ck-text-main);
+  font-weight: 600;
+}
+.navbar-list .navbar-item:hover a {
+  color: var(--ck-pink-deep);
+}
+.navbar-list .navbar-item.active a::after {
+  content: '♥';
+  color: var(--ck-pink);
+  font-size: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* -----------------------------------------------------------
+   Article Card Customization
+----------------------------------------------------------- */
+
+.home-article-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  z-index: var(--z-base);
+  cursor: pointer; /* Visual indicator that the card is clickable */
+}
+
+.home-article-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(174, 198, 207, 0.3);
+  border-color: var(--ck-blue);
+}
+
+/* Title Hover Color */
+.home-article-title a {
+  color: var(--ck-text-main);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.home-article-item:hover .home-article-title a {
+  color: var(--ck-pink-deep);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+}
+
+
+/* Interactive elements layer */
+.home-article-meta-info,
+.article-tag-list,
+.home-article-category,
+.home-article-tag,
+.article-tool-item,
+.home-article-thumbnail a,
+.home-article-meta-info-container a
+{
+  position: relative;
+  z-index: var(--z-interactive);
+  pointer-events: auto;
+}
+
+/* -----------------------------------------------------------
+   FIXED: Tags (Hiding the pipe separator)
+----------------------------------------------------------- */
+
+/* Apply styles to the link inside the tag, not the list item */
+.article-tag-list-item, .home-article-tag li {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+   color: transparent; /* Hide the pipe separator text */
+}
+
+/* Restore font size for the link and apply the bubble style */
+.article-tag-list-item a, .home-article-tag li a {
+  display: inline-block;
+  font-size: 14px; /* Restore font size */
+  color: inherit; /* Ensure link text is visible */
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Colored Tags (nth-child pattern) targeting the LINK */
+.article-tag-list-item:nth-child(3n+1) a, .home-article-tag li:nth-child(3n+1) a {
+  background: rgba(255, 183, 178, 0.15);
+  color: var(--ck-pink-deep);
+  border-color: rgba(255, 183, 178, 0.3);
+}
+.article-tag-list-item:nth-child(3n+2) a, .home-article-tag li:nth-child(3n+2) a {
+  background: rgba(174, 198, 207, 0.15);
+  color: #7A9CA5;
+  border-color: rgba(174, 198, 207, 0.3);
+}
+.article-tag-list-item:nth-child(3n+3) a, .home-article-tag li:nth-child(3n+3) a {
+  background: rgba(253, 253, 150, 0.2);
+  color: #B5A642;
+  border-color: rgba(253, 253, 150, 0.4);
+}
+
+.article-tag-list-item a:hover, .home-article-tag li a:hover {
+  transform: translateY(-2px);
+  background: var(--ck-white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* -----------------------------------------------------------
+   FIXED: Read More Button Styling
+----------------------------------------------------------- */
+
+/* Redesign "Read More" to be cleaner */
+.home-article-meta-info-container > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* Transparent background */
+  border: none;
+  color: var(--ck-pink-deep);
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: none; /* Remove shadow */
+  border-radius: 0;
+}
+
+/* Add an icon or underline effect on hover instead of button style */
+.home-article-meta-info-container > a:hover {
+  color: var(--ck-blue);
+  background: transparent;
+  transform: translateX(5px); /* Move right slightly */
+}
+
+/* Icon adjustment */
+.home-article-meta-info-container > a i {
+  margin-left: 5px;
+  transition: margin-left 0.3s ease;
+}
+.home-article-meta-info-container > a:hover i {
+  margin-left: 8px;
+}
+
+/* -----------------------------------------------------------
+   FIXED: Home Banner & Social Buttons (Frosted Glass)
+----------------------------------------------------------- */
+
+/* Restore frosted glass for social buttons */
+.social-contacts, .home-banner-container .group {
+  background: rgba(255, 255, 255, 0.25); /* Semi-transparent white */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.social-contacts:hover, .home-banner-container .group:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 183, 178, 0.3);
+}
+
+/* Banner Title Text */
+.home-banner-container .description {
+  color: #ffffff; /* Default to white for contrast */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* -----------------------------------------------------------
+   FIXED: Dark Mode (Ultra Specificity)
+----------------------------------------------------------- */
+
+/* Add html.dark selector in addition to data-theme */
+html[data-theme="dark"] body, html.dark body {
+  background-color: #222 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] .home-article-item,
+html.dark .home-article-item {
+  background: #2d2d2d !important;
+  border-color: #444 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .home-article-title a,
+html.dark .home-article-title a {
+  color: #e6e6e6 !important;
+}
+
+html[data-theme="dark"] .home-article-item:hover .home-article-title a,
+html.dark .home-article-item:hover .home-article-title a {
+  color: var(--ck-pink-light) !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="dark"] .article-tag-list-item a,
+html[data-theme="dark"] .home-article-tag li a,
+html.dark .article-tag-list-item a,
+html.dark .home-article-tag li a {
+  background: #333 !important;
+  color: #aaa !important;
+  border-color: #444 !important;
+}
+
+/* Sidebar & Statistics Dark Mode Fixes - Tailwind Overrides */
+html[data-theme="dark"] .statistics .number,
+html.dark .statistics .number,
+html[data-theme="dark"] .sidebar-count,
+html.dark .sidebar-count,
+html[data-theme="dark"] .tag-count-item .number,
+html.dark .tag-count-item .number,
+html[data-theme="dark"] .text-second-text-color,
+html.dark .text-second-text-color,
+html[data-theme="dark"] .text-third-text-color,
+html.dark .text-third-text-color
+{
+  color: #ccc !important;
+  transition: color 0.1s linear !important;
+}
+
+/* Explicitly target Tailwind classes that might be injected via JS */
+html.dark .text-gray-500, html[data-theme="dark"] .text-gray-500,
+html.dark .text-gray-600, html[data-theme="dark"] .text-gray-600,
+html.dark .text-gray-700, html[data-theme="dark"] .text-gray-700,
+html.dark .text-gray-800, html[data-theme="dark"] .text-gray-800,
+html.dark .text-gray-900, html[data-theme="dark"] .text-gray-900 {
+  color: #aaa !important;
+}
+
+/* Footer */
+.footer {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(5px);
+  border-top: 2px dashed var(--ck-blue);
+}
