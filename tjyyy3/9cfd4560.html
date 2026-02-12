@@ -140,10 +140,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tjyyy3.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2024-10-08T22:23:05.000Z">
-<meta property="article:modified_time" content="2026-02-11T16:12:18.551Z">
+<meta property="article:modified_time" content="2026-02-12T08:12:41.094Z">
 <meta property="article:author" content="jyyyy">
-<meta property="article:tag" content="题解">
 <meta property="article:tag" content="lc100">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tjyyy3.github.io/images/redefine-og.webp">
     
@@ -226,7 +226,7 @@
     
     
     
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 
 
@@ -599,8 +599,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-11 16:12:18</span>
-            <span class="mobile">2026-02-11 16:12:18</span>
+            <span class="desktop">2026-02-12 08:12:41</span>
+            <span class="mobile">2026-02-12 08:12:41</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -626,7 +626,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>503 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>499 字</span>
         </span>
     
     
@@ -663,7 +663,7 @@
 <h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>定义<code>dp[i]</code>来存放以i为终点的子序列的乘积，找到其中的最大值（max）</p>
 <p>状态转移方程 $ dp[i] &#x3D; max(nums[i], nums[i]*dp[i-1]) $ （就是两种情况，是否乘它的上一个元素）</p>
 <p>&#x3D;&#x3D;problem&#x3D;&#x3D; </p>
-<p><code>a=&#123;5,6,−3,4,−3&#125;</code>时，最大乘积的子序列应该是<code>&#123;−3,4,−3&#125;</code>，但是按照上述状态转移方程却无法得到正确的答案，因此这说明：当前位置的最优解未必是由前一个位置的最优状态转移得到的。</p>
+<p><code>a={5,6,−3,4,−3}</code>时，最大乘积的子序列应该是<code>{−3,4,−3}</code>，但是按照上述状态转移方程却无法得到正确的答案，因此这说明：当前位置的最优解未必是由前一个位置的最优状态转移得到的。</p>
 <p><strong>我们可以针对正负数分类讨论</strong></p>
 <ol>
 <li>当前元素i为正数：我们希望dp[i-1]越大越好</li>
@@ -686,7 +686,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-02-11 16:12:18
+                    :</strong> 2026-02-12 08:12:41
             </li>
         
         <li>
