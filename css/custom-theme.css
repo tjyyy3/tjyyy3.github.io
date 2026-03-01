@@ -57,6 +57,36 @@ body {
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   border-bottom: 1px solid rgba(255, 183, 178, 0.3);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Navbar */
+html.dark .navbar-container,
+body.dark-mode .navbar-container {
+  background: rgba(32, 33, 36, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .navbar-container .logo-title,
+html.dark .navbar-container .logo-title h1,
+html.dark .navbar-container .navbar-title,
+body.dark-mode .navbar-container .logo-title,
+body.dark-mode .navbar-container .logo-title h1,
+body.dark-mode .navbar-container .navbar-title {
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.dark .navbar-list .navbar-item a,
+body.dark-mode .navbar-list .navbar-item a {
+  color: #e0e0e0 !important;
+}
+
+html.dark .navbar-list .navbar-item:hover a,
+body.dark-mode .navbar-list .navbar-item:hover a {
+  color: var(--ck-pink) !important;
 }
 
 .logo-title, .logo-title h1, .navbar-title {
@@ -296,54 +326,65 @@ body {
 
 /* -----------------------------------------------------------
    FIXED: Dark Mode (Ultra Specificity)
+   Using html.dark and body.dark-mode for JS compatibility
 ----------------------------------------------------------- */
 
-/* Add html.dark selector in addition to data-theme */
-html[data-theme="dark"] body, html.dark body {
-  background-color: #222 !important;
+html.dark body,
+body.dark-mode {
+  background-color: #1a1a1a !important;
   background-image: none !important;
 }
 
-html[data-theme="dark"] .home-article-item,
-html.dark .home-article-item {
-  background: #2d2d2d !important;
+html.dark .home-article-item,
+body.dark-mode .home-article-item {
+  background: rgba(45, 45, 45, 0.9) !important;
   border-color: #444 !important;
-  box-shadow: none !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
 }
 
-html[data-theme="dark"] .home-article-title a,
-html.dark .home-article-title a {
+html.dark .home-article-title a,
+body.dark-mode .home-article-title a {
   color: #e8e8e8 !important;
 }
 
-html[data-theme="dark"] .home-article-item:hover .home-article-title a,
-html.dark .home-article-item:hover .home-article-title a {
-  color: var(--ck-pink-deep) !important;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5) !important;
+html.dark .home-article-item:hover .home-article-title a,
+body.dark-mode .home-article-item:hover .home-article-title a {
+  color: var(--ck-pink) !important;
+  text-shadow: 0 0 10px rgba(255,183,178,0.5) !important;
 }
 
-html[data-theme="dark"] .article-tag-list-item a,
-html[data-theme="dark"] .home-article-tag li a,
 html.dark .article-tag-list-item a,
-html.dark .home-article-tag li a {
+html.dark .home-article-tag li a,
+body.dark-mode .article-tag-list-item a,
+body.dark-mode .home-article-tag li a {
   background: #333 !important;
   color: #aaa !important;
   border-color: #444 !important;
 }
 
-/* Sidebar & Statistics Dark Mode Fixes - Tailwind Overrides */
-html[data-theme="dark"] .statistics .number,
+/* Sidebar & Statistics Dark Mode Fixes */
 html.dark .statistics .number,
-html[data-theme="dark"] .sidebar-count,
+body.dark-mode .statistics .number,
 html.dark .sidebar-count,
-html[data-theme="dark"] .tag-count-item .number,
+body.dark-mode .sidebar-count,
 html.dark .tag-count-item .number,
-html[data-theme="dark"] .text-second-text-color,
+body.dark-mode .tag-count-item .number,
 html.dark .text-second-text-color,
-html[data-theme="dark"] .text-third-text-color,
-html.dark .text-third-text-color
-{
+body.dark-mode .text-second-text-color,
+html.dark .text-third-text-color,
+body.dark-mode .text-third-text-color {
   color: #ccc !important;
+}
+
+/* Dark mode scrollbar */
+html.dark ::-webkit-scrollbar-thumb,
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+html.dark ::-webkit-scrollbar-track,
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #222;
 }
 
 .home-article-title a,
@@ -366,12 +407,17 @@ html.dark .text-third-text-color
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Explicitly target Tailwind classes that might be injected via JS */
-html.dark .text-gray-500, html[data-theme="dark"] .text-gray-500,
-html.dark .text-gray-600, html[data-theme="dark"] .text-gray-600,
-html.dark .text-gray-700, html[data-theme="dark"] .text-gray-700,
-html.dark .text-gray-800, html[data-theme="dark"] .text-gray-800,
-html.dark .text-gray-900, html[data-theme="dark"] .text-gray-900 {
+/* Explicitly target Tailwind classes for dark mode */
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-900 {
   color: #aaa !important;
 }
 
@@ -380,4 +426,175 @@ html.dark .text-gray-900, html[data-theme="dark"] .text-gray-900 {
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(5px);
   border-top: 2px dashed var(--ck-blue);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .footer,
+body.dark-mode .footer {
+  background: rgba(32, 33, 36, 0.8);
+  border-top: 2px dashed #555;
+}
+
+/* Dark mode for social buttons on banner */
+html.dark .social-contacts,
+html.dark .home-banner-container .group,
+body.dark-mode .social-contacts,
+body.dark-mode .home-banner-container .group {
+  background: rgba(50, 50, 50, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Search popup dark mode */
+html.dark .search-pop-overlay .search-popup,
+body.dark-mode .search-pop-overlay .search-popup {
+  background: rgba(32, 33, 36, 0.95) !important;
+}
+
+html.dark .search-pop-overlay .search-popup input,
+body.dark-mode .search-pop-overlay .search-popup input {
+  background: #2d2d2d !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+html.dark .search-pop-overlay .search-popup .search-result-list li,
+body.dark-mode .search-pop-overlay .search-popup .search-result-list li {
+  border-color: #444 !important;
+}
+
+html.dark .search-pop-overlay .search-popup .search-result-list li a,
+body.dark-mode .search-pop-overlay .search-popup .search-result-list li a {
+  color: #e0e0e0 !important;
+}
+
+/* -----------------------------------------------------------
+   Search Icon & Popup Beautification
+----------------------------------------------------------- */
+
+/* Navbar Search Icon */
+.navbar-container .navbar-item.search {
+  cursor: pointer;
+}
+
+.navbar-container .navbar-item.search i {
+  color: var(--ck-pink-deep) !important;
+  transition: all 0.3s ease;
+  font-size: 1.1rem !important;
+}
+
+.navbar-container .navbar-item.search:hover i {
+  color: var(--ck-blue) !important;
+  transform: scale(1.15);
+}
+
+/* Dark mode search icon */
+html.dark .navbar-container .navbar-item.search i,
+body.dark-mode .navbar-container .navbar-item.search i {
+  color: var(--ck-pink) !important;
+}
+
+html.dark .navbar-container .navbar-item.search:hover i,
+body.dark-mode .navbar-container .navbar-item.search:hover i {
+  color: #4ECDC4 !important;
+}
+
+/* Mobile search icon */
+.navbar-container .icon-item.search i {
+  color: var(--ck-pink-deep) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-container .icon-item.search:hover i {
+  color: var(--ck-blue) !important;
+  transform: scale(1.1);
+}
+
+html.dark .navbar-container .icon-item.search i,
+body.dark-mode .navbar-container .icon-item.search i {
+  color: var(--ck-pink) !important;
+}
+
+/* Search Popup Beautification */
+.search-pop-overlay .search-popup {
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 183, 178, 0.3) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+  overflow: hidden;
+}
+
+.search-pop-overlay .search-popup .search-header {
+  background: linear-gradient(135deg, rgba(255, 183, 178, 0.1) 0%, rgba(174, 198, 207, 0.1) 100%);
+  border-bottom: 1px solid rgba(255, 183, 178, 0.2);
+}
+
+.search-pop-overlay .search-popup .search-input-container input {
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 183, 178, 0.3) !important;
+  padding: 10px 16px !important;
+  transition: all 0.3s ease;
+}
+
+.search-pop-overlay .search-popup .search-input-container input:focus {
+  border-color: var(--ck-pink) !important;
+  box-shadow: 0 0 0 3px rgba(255, 183, 178, 0.2) !important;
+  outline: none !important;
+}
+
+.search-pop-overlay .search-popup .search-result-list li {
+  border-radius: 12px;
+  margin: 6px 0;
+  transition: all 0.2s ease;
+}
+
+.search-pop-overlay .search-popup .search-result-list li:hover {
+  background: rgba(255, 183, 178, 0.1);
+  transform: translateX(5px);
+}
+
+.search-pop-overlay .search-popup .search-result-list li a {
+  padding: 12px 16px !important;
+}
+
+.search-pop-overlay .search-popup .search-keyword {
+  color: var(--ck-pink-deep) !important;
+  background: rgba(255, 183, 178, 0.2);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* Dark mode search popup beautification */
+html.dark .search-pop-overlay .search-popup,
+body.dark-mode .search-pop-overlay .search-popup {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .search-pop-overlay .search-popup .search-header,
+body.dark-mode .search-pop-overlay .search-popup .search-header {
+  background: linear-gradient(135deg, rgba(255, 154, 118, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .search-pop-overlay .search-popup .search-input-container input,
+body.dark-mode .search-pop-overlay .search-popup .search-input-container input {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .search-pop-overlay .search-popup .search-input-container input:focus,
+body.dark-mode .search-pop-overlay .search-popup .search-input-container input:focus {
+  border-color: var(--ck-pink) !important;
+  box-shadow: 0 0 0 3px rgba(255, 154, 118, 0.2) !important;
+}
+
+html.dark .search-pop-overlay .search-popup .search-result-list li:hover,
+body.dark-mode .search-pop-overlay .search-popup .search-result-list li:hover {
+  background: rgba(255, 154, 118, 0.1);
+}
+
+html.dark .search-pop-overlay .search-popup .search-keyword,
+body.dark-mode .search-pop-overlay .search-popup .search-keyword {
+  color: #FF9A76 !important;
+  background: rgba(255, 154, 118, 0.2);
 }
