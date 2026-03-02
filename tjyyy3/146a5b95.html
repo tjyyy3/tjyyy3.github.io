@@ -140,7 +140,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tjyyy3.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2024-08-29T15:07:59.000Z">
-<meta property="article:modified_time" content="2026-03-02T03:17:07.345Z">
+<meta property="article:modified_time" content="2026-03-02T03:32:35.056Z">
 <meta property="article:author" content="jyyyy">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -610,8 +610,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-03-02 03:17:07</span>
-            <span class="mobile">2026-03-02 03:17:07</span>
+            <span class="desktop">2026-03-02 03:32:35</span>
+            <span class="mobile">2026-03-02 03:32:35</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -655,15 +655,15 @@
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<h1 id="【题解】3144-分割字符频率相等的最少子字符串-力扣（LeetCode）"><a href="#【题解】3144-分割字符频率相等的最少子字符串-力扣（LeetCode）" class="headerlink" title="【题解】3144. 分割字符频率相等的最少子字符串 - 力扣（LeetCode）"></a>【题解】<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-substring-partition-of-equal-character-frequency/description/" >3144. 分割字符频率相等的最少子字符串 - 力扣（LeetCode）<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></h1><h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h2><p>给你一个字符串 <code>s</code> ，你需要将它分割成一个或者更多的 <strong>平衡</strong> 子字符串。比方说，<code>s == &quot;ababcc&quot;</code> 那么 <code>(&quot;abab&quot;, &quot;c&quot;, &quot;c&quot;)</code> ，<code>(&quot;ab&quot;, &quot;abc&quot;, &quot;c&quot;)</code> 和 <code>(&quot;ababcc&quot;)</code> 都是合法分割，但是 <code>(&quot;a&quot;, **&quot;bab&quot;**, &quot;cc&quot;)</code> ，<code>(**&quot;aba&quot;**, &quot;bc&quot;, &quot;c&quot;)</code> 和 <code>(&quot;ab&quot;, **&quot;abcc&quot;**)</code> 不是，不平衡的子字符串用粗体表示。</p>
 <p>请你返回 <code>s</code> <strong>最少</strong> 能分割成多少个平衡子字符串。</p>
-<p><strong>注意：</strong>一个 <strong>平衡</strong> 字符串指的是字符串中所有字符出现的次数都相同。</p>
+<p>**注意：**一个 <strong>平衡</strong> 字符串指的是字符串中所有字符出现的次数都相同。</p>
 <p><strong>示例 1：</strong></p>
-<p><strong>输入：</strong>s &#x3D; “fabccddg”</p>
-<p><strong>输出：</strong>3</p>
+<p>**输入：**s &#x3D; “fabccddg”</p>
+<p>**输出：**3</p>
 <p><strong>解释：</strong></p>
 <p>我们可以将 <code>s</code> 分割成 3 个子字符串：<code>(&quot;fab, &quot;ccdd&quot;, &quot;g&quot;)</code> 或者 <code>(&quot;fabc&quot;, &quot;cd&quot;, &quot;dg&quot;)</code> 。</p>
 <p><strong>示例 2：</strong></p>
-<p><strong>输入：</strong>s &#x3D; “abababaccddb”</p>
-<p><strong>输出：</strong>2</p>
+<p>**输入：**s &#x3D; “abababaccddb”</p>
+<p>**输出：**2</p>
 <p><strong>解释：</strong></p>
 <p>我们可以将 <code>s</code> 分割成 2 个子字符串：<code>(&quot;abab&quot;, &quot;abaccddb&quot;)</code> 。</p>
 <p><strong>提示：</strong></p>
@@ -699,7 +699,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-03-02 03:17:07
+                    :</strong> 2026-03-02 03:32:35
             </li>
         
         <li>
