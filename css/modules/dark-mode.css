@@ -1,0 +1,100 @@
+/* -----------------------------------------------------------
+   FIXED: Dark Mode (Ultra Specificity)
+   Using html.dark and body.dark-mode for JS compatibility
+   ----------------------------------------------------------- */
+
+html.dark body,
+body.dark-mode {
+  background-color: #1a1a1a !important;
+  background-image: none !important;
+}
+
+html.dark .home-article-item,
+body.dark-mode .home-article-item {
+  background: rgba(45, 45, 45, 0.9) !important;
+  border-color: #444 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+}
+
+html.dark .home-article-title a,
+body.dark-mode .home-article-title a {
+  color: #e8e8e8 !important;
+}
+
+html.dark .home-article-item:hover .home-article-title a,
+body.dark-mode .home-article-item:hover .home-article-title a {
+  color: var(--ck-pink) !important;
+  text-shadow: 0 0 10px rgba(255,183,178,0.5) !important;
+}
+
+html.dark .article-tag-list-item a,
+html.dark .home-article-tag li a,
+body.dark-mode .article-tag-list-item a,
+body.dark-mode .home-article-tag li a {
+  background: #333 !important;
+  color: #aaa !important;
+  border-color: #444 !important;
+}
+
+/* Sidebar & Statistics Dark Mode Fixes */
+html.dark .statistics .number,
+body.dark-mode .statistics .number,
+html.dark .sidebar-count,
+body.dark-mode .sidebar-count,
+html.dark .tag-count-item .number,
+body.dark-mode .tag-count-item .number,
+html.dark .text-second-text-color,
+body.dark-mode .text-second-text-color,
+html.dark .text-third-text-color,
+body.dark-mode .text-third-text-color {
+  color: #ccc !important;
+}
+
+/* Dark mode scrollbar */
+html.dark ::-webkit-scrollbar-thumb,
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+html.dark ::-webkit-scrollbar-track,
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.home-article-title a,
+.home-article-content,
+.home-article-meta-info {
+  transition: color 0.3s ease !important;
+}
+
+.home-article-item,
+.home-article-item p,
+.home-article-item h1,
+.home-article-item h2,
+.home-article-item h3,
+.home-article-item h4,
+.home-article-item h5,
+.home-article-item h6,
+.home-article-item a,
+.home-article-item span,
+.home-article-item li,
+.home-article-item button,
+.home-article-item input,
+.home-article-item textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Explicitly target Tailwind classes for dark mode */
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-900 {
+  color: #aaa !important;
+}

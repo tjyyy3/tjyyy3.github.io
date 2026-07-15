@@ -1,0 +1,71 @@
+/* Navbar */
+.navbar-container {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 183, 178, 0.3);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Navbar */
+html.dark .navbar-container,
+body.dark-mode .navbar-container {
+  background: rgba(32, 33, 36, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .navbar-container .logo-title,
+html.dark .navbar-container .logo-title h1,
+html.dark .navbar-container .navbar-title,
+body.dark-mode .navbar-container .logo-title,
+body.dark-mode .navbar-container .logo-title h1,
+body.dark-mode .navbar-container .navbar-title {
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.dark .navbar-list .navbar-item a,
+body.dark-mode .navbar-list .navbar-item a {
+  color: #e0e0e0 !important;
+}
+
+html.dark .navbar-list .navbar-item:hover a,
+body.dark-mode .navbar-list .navbar-item:hover a {
+  color: var(--ck-pink) !important;
+}
+
+.logo-title,
+.logo-title h1,
+.navbar-title {
+  display: inline-block;
+  color: var(--ck-pink-deep);
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  padding: 4px 0;
+}
+
+/* Navbar Items */
+.navbar-list .navbar-item a {
+  color: var(--ck-text-main);
+  font-weight: 600;
+}
+
+.navbar-list .navbar-item:hover a {
+  color: var(--ck-pink-deep);
+}
+
+.navbar-list .navbar-item.active a::after {
+  content: '♥';
+  color: var(--ck-pink);
+  font-size: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}

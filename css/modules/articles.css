@@ -1,0 +1,144 @@
+/* -----------------------------------------------------------
+   Article Card Customization
+   ----------------------------------------------------------- */
+
+.home-article-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  z-index: var(--z-base);
+  cursor: pointer; /* Visual indicator that the card is clickable */
+}
+
+.home-article-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(174, 198, 207, 0.3);
+  border-color: var(--ck-blue);
+}
+
+/* Title Hover Color */
+.home-article-title a {
+  color: var(--ck-text-main);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.home-article-item:hover .home-article-title a {
+  color: var(--ck-pink-light);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+}
+
+/* Interactive elements layer */
+.home-article-meta-info,
+.article-tag-list,
+.home-article-category,
+.home-article-tag,
+.article-tool-item,
+.home-article-thumbnail a,
+.home-article-meta-info-container a {
+  position: relative;
+  z-index: var(--z-interactive);
+  pointer-events: auto;
+}
+
+/* -----------------------------------------------------------
+   FIXED: Tags (Hiding the pipe separator)
+   ----------------------------------------------------------- */
+
+/* Apply styles to the link inside the tag, not the list item */
+.article-tag-list-item,
+.home-article-tag li {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+  color: transparent; /* Hide the pipe separator text */
+}
+
+/* Restore font size for the link and apply the bubble style */
+.article-tag-list-item a,
+.home-article-tag li a {
+  display: inline-block;
+  font-size: 14px; /* Restore font size */
+  color: inherit; /* Ensure link text is visible */
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Colored Tags (nth-child pattern) targeting the LINK */
+.article-tag-list-item:nth-child(3n+1) a,
+.home-article-tag li:nth-child(3n+1) a {
+  background: rgba(255, 183, 178, 0.15);
+  color: var(--ck-pink-deep);
+  border-color: rgba(255, 183, 178, 0.3);
+}
+
+.article-tag-list-item:nth-child(3n+2) a,
+.home-article-tag li:nth-child(3n+2) a {
+  background: rgba(174, 198, 207, 0.15);
+  color: #7A9CA5;
+  border-color: rgba(174, 198, 207, 0.3);
+}
+
+.article-tag-list-item:nth-child(3n+3) a,
+.home-article-tag li:nth-child(3n+3) a {
+  background: rgba(253, 253, 150, 0.2);
+  color: #B5A642;
+  border-color: rgba(253, 253, 150, 0.4);
+}
+
+.article-tag-list-item a:hover,
+.home-article-tag li a:hover {
+  transform: translateY(-2px);
+  background: var(--ck-white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* -----------------------------------------------------------
+   FIXED: Read More Button Styling
+   ----------------------------------------------------------- */
+
+/* Redesign "Read More" to be cleaner */
+.home-article-meta-info-container > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* Transparent background */
+  border: none;
+  color: var(--ck-pink-deep);
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: none; /* Remove shadow */
+  border-radius: 0;
+}
+
+/* Add an icon or underline effect on hover instead of button style */
+.home-article-meta-info-container > a:hover {
+  color: var(--ck-blue);
+  background: transparent;
+  transform: translateX(5px); /* Move right slightly */
+}
+
+/* Icon adjustment */
+.home-article-meta-info-container > a i {
+  margin-left: 5px;
+  transition: margin-left 0.3s ease;
+}
+
+.home-article-meta-info-container > a:hover i {
+  margin-left: 8px;
+}

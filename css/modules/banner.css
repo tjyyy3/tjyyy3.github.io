@@ -1,0 +1,73 @@
+/* -----------------------------------------------------------
+   FIXED: Home Banner & Social Buttons (Frosted Glass)
+   ----------------------------------------------------------- */
+
+/* Restore frosted glass for social buttons */
+.social-contacts,
+.home-banner-container .group {
+  background: rgba(255, 255, 255, 0.25); /* Semi-transparent white */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.social-contacts:hover,
+.home-banner-container .group:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 183, 178, 0.3);
+}
+
+/* Banner Title Text */
+.home-banner-container .description {
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  font-size: 4rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px;
+}
+
+.home-banner-container .description p {
+  font-size: 1.8rem !important;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.home-banner-container .description p i {
+  font-size: 1.8rem !important;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+
+/* Responsive adjustments for banner text */
+@media (max-width: 768px) {
+  .home-banner-container .description {
+    font-size: 3rem !important;
+  }
+
+  .home-banner-container .description p {
+    font-size: 1.4rem !important;
+  }
+
+  .home-banner-container .description p i {
+    font-size: 1.4rem !important;
+    padding: 0.4rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-banner-container .description {
+    font-size: 2.2rem !important;
+  }
+
+  .home-banner-container .description p {
+    font-size: 1.1rem !important;
+  }
+
+  .home-banner-container .description p i {
+    font-size: 1.1rem !important;
+    padding: 0.3rem 0;
+  }
+}

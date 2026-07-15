@@ -1,0 +1,55 @@
+/* -----------------------------------------------------------
+   Chiikawa Theme - V5 (Refining Tags, Buttons, Dark Mode)
+   ----------------------------------------------------------- */
+
+:root {
+  --ck-cream: #FFF9F0;
+  --ck-white: #FFFFFF;
+  --ck-pink: #FFB7B2;
+  --ck-pink-deep: #FF8E88;
+  --ck-pink-light: #FF9A8B;
+  --ck-blue: #AEC6CF;
+  --ck-blue-light: #D4E5ED;
+  --ck-yellow: #FDFD96;
+  --ck-yellow-dark: #FCE38A;
+  --ck-text-main: #5d5d5d;
+  --ck-text-light: #8a8a8a;
+
+  /* Z-index layers for better maintainability */
+  --z-base: 1;
+  --z-overlay: 2;
+  --z-interactive: 10;
+
+  --primary-color: var(--ck-pink);
+  --background-color: var(--ck-cream);
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--ck-cream);
+  color: var(--ck-text-main);
+  background-image: radial-gradient(var(--ck-pink-light) 1px, transparent 1px), radial-gradient(var(--ck-blue) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+}
+
+/* Selection */
+::selection {
+  background: var(--ck-pink);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ck-pink);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ck-cream);
+}
