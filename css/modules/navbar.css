@@ -14,11 +14,11 @@ body.dark-mode .navbar-container {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-html.dark .navbar-container .logo-title,
-html.dark .navbar-container .logo-title h1,
+html.dark .navbar-container .logo-title:not(:has(> h1)),
+html.dark .navbar-container .logo-title > h1,
 html.dark .navbar-container .navbar-title,
-body.dark-mode .navbar-container .logo-title,
-body.dark-mode .navbar-container .logo-title h1,
+body.dark-mode .navbar-container .logo-title:not(:has(> h1)),
+body.dark-mode .navbar-container .logo-title > h1,
 body.dark-mode .navbar-container .navbar-title {
   background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%) !important;
   background-clip: text !important;
@@ -37,18 +37,27 @@ body.dark-mode .navbar-list .navbar-item:hover a {
 }
 
 .logo-title,
-.logo-title h1,
 .navbar-title {
   display: inline-block;
   color: var(--ck-pink-deep);
-  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: 800;
   letter-spacing: 1px;
   line-height: 1.4;
   padding: 4px 0;
+}
+
+.logo-title > h1 {
+  font: inherit;
+  margin: 0;
+}
+
+.logo-title:not(:has(> h1)),
+.logo-title > h1,
+.navbar-title {
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Navbar Items */
